@@ -82,6 +82,7 @@ class UserModel extends MyModel
     protected function setAttribute()
     {
         $this->admin->setId($this->id);
+
         $info = $this->admin->getInfoById();
 
         if ( empty($info['idx']) === false ) {
