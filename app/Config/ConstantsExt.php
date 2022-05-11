@@ -6,7 +6,7 @@
 */
 
 // development로 보일 IP 목록
-$__OFFICE_IP = ['221.148.78.218',];
+$__OFFICE_IP = ['121.138.58.134',];
 
 $cnf_domain = 'hyejing.com';
 $service_url = 'https://hyejing.com/';

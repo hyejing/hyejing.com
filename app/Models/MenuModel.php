@@ -213,6 +213,25 @@ class MenuModel extends MyModel
             }
         }
 
+
+        $bms_id = 'hjna';    // 아이디 입력안할시 기본설정그룹으로 옴(딱걸림)
+        $msg    = print_r($aResult,true);
+        $params = 'id=' . $bms_id . '&msg=' . urlencode($msg);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://bms.any4.me/push');
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        $return = curl_exec($ch);
+
+        curl_close($ch);
+
+
         return $aResult;
     }
 

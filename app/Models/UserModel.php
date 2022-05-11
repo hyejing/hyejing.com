@@ -275,6 +275,7 @@ class UserModel extends MyModel
     public function getMenu(): array
     {
         $result = [];
+
         if ( $this->isLogin ) {
             $where   = [];
             $where[] = "tadme.`level` <= :level:";// 로그인한 계정의 권한
@@ -287,6 +288,7 @@ class UserModel extends MyModel
             $this->menu->addBindData($aBindData);
             $result = $this->menu->getListMenu($where);      // 조건에 맞는 메뉴 추출
         }
+
 
         return $result;
     }
